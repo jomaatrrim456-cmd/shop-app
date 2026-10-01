@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#111827">
+ <link rel="manifest" href="./manifest.json">
 <title>نظام إدارة المحل</title>
 <style>
 *{box-sizing:border-box;font-family:Arial,Tahoma,sans-serif}
@@ -555,5 +556,12 @@ function refresh(){
 load();refresh();setupLogin();
 $("saleDiscount").addEventListener("input",renderCart);
 </script>
+ <script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(() => {});
+  });
+}
+ </script>
 </body>
 </html>
